@@ -1,24 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24118.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24059"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Contact View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ContactViewController" customModule="ContactList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meus Contatos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3bm-nz-ESg">
+                                <rect key="frame" x="131.66666666666669" y="80" width="129.66666666666669" height="20.333333333333329"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <searchBar clipsSubviews="YES" contentMode="redraw" placeholder="Buscar" translatesAutoresizingMaskIntoConstraints="NO" id="A30-a8-MIw">
+                                <rect key="frame" x="16" y="103.33333333333331" width="361" height="64"/>
+                                <offsetWrapper key="searchFieldBackgroundPositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="cbQ-0w-6ku"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Qzq-Ax-veW">
+                                <rect key="frame" x="0.0" y="180.33333333333331" width="393" height="671.66666666666674"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z0x-c3-9v2">
+                                <rect key="frame" x="335" y="76" width="50" height="34.333333333333343"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="pse-yp-hdM"/>
+                                </constraints>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <imageReference key="image" image="plus.circle.fill" catalog="system" symbolScale="default"/>
+                                    <color key="baseForegroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="AddContato:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mca-rq-uO1"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Qzq-Ax-veW" firstAttribute="top" secondItem="A30-a8-MIw" secondAttribute="bottom" constant="13" id="4LT-0e-tAR"/>
+                            <constraint firstItem="A30-a8-MIw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="9OY-Jb-fCV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="A30-a8-MIw" secondAttribute="trailing" constant="16" id="LkT-gL-4t3"/>
+                            <constraint firstItem="3bm-nz-ESg" firstAttribute="centerX" secondItem="A30-a8-MIw" secondAttribute="centerX" id="QMZ-W8-C4Q"/>
+                            <constraint firstItem="3bm-nz-ESg" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="80" id="QTd-Ze-g71"/>
+                            <constraint firstItem="Qzq-Ax-veW" firstAttribute="top" secondItem="Z0x-c3-9v2" secondAttribute="bottom" constant="70.000000000000028" id="RIS-Uf-GkG"/>
+                            <constraint firstAttribute="bottom" secondItem="Qzq-Ax-veW" secondAttribute="bottom" id="h2b-Vv-09E"/>
+                            <constraint firstItem="A30-a8-MIw" firstAttribute="top" secondItem="3bm-nz-ESg" secondAttribute="bottom" constant="3" id="i1N-8V-zOj"/>
+                            <constraint firstAttribute="trailing" secondItem="Z0x-c3-9v2" secondAttribute="trailing" constant="8" id="lf7-4Y-0KB"/>
+                            <constraint firstItem="Z0x-c3-9v2" firstAttribute="leading" secondItem="3bm-nz-ESg" secondAttribute="trailing" constant="73.666666666666629" id="p8L-bm-wwE"/>
+                            <constraint firstItem="Qzq-Ax-veW" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="txX-dn-tbf"/>
+                            <constraint firstItem="Qzq-Ax-veW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vmp-lU-ZPh"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="SearchBar" destination="A30-a8-MIw" id="2oZ-Ti-Jlx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="139.69465648854961" y="130.98591549295776"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
